@@ -1,0 +1,72 @@
+<!-- <div class="loading" *ngIf="loading">Loading movies...</div>
+
+<div class="gallery" *ngIf="!loading">
+  <div class="card" *ngFor="let movie of movies">
+    <img [src]="movie.medium_cover_image" alt="{{ movie.title }}" />
+    <h4>{{ movie.title }}</h4>
+    <p>{{ movie.year }}</p>
+  </div>
+</div>
+
+<div class="pagination-buttons">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= totalCount">Next</button>
+</div>
+  -->
+
+  
+  <div class="toggle-view">
+    <button (click)="toggleView()">
+      {{ isCardView ? 'Switch to Table View' : 'Switch to Card View' }}
+    </button>
+  </div>
+  
+  <div *ngIf="isCardView; else tableView">
+    <div class="gallery" *ngIf="movies.length">
+      <div class="card" *ngFor="let movie of movies">
+        <img [src]="movie.medium_cover_image" alt="{{ movie.title }}">
+        <h4>{{ movie.title }}</h4>
+        <p>{{ movie.year }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #tableView>
+    <div *ngIf="movies.length">
+      <table class="movie-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies">
+            <td><img [src]="movie.medium_cover_image" alt="{{ movie.title }}" width="50"></td>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+  
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    
+    <button *ngIf="visiblePages[0] > 1" (click)="loadPage(1)">1</button>
+    <span *ngIf="visiblePages[0] > 2">...</span>
+    
+    <ng-container *ngFor="let page of visiblePages">
+      <button (click)="loadPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    </ng-container>
+    
+    <span *ngIf="visiblePages[visiblePages.length - 1] < totalPages - 1">...</span>
+    <button *ngIf="visiblePages[visiblePages.length - 1] < totalPages" (click)="loadPage(totalPages)">{{ totalPages }}</button>
+    
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+  
+  

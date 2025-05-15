@@ -1,0 +1,28 @@
+<p>profile works!</p>
+<h2>User Profile</h2>
+<div *ngIf="user">
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Age:</strong> {{ user.age }}</p>
+  <p><strong>Gender:</strong> {{ user.gender }}</p>
+  <p><strong>Status:</strong> {{ user.status }}</p>
+</div>
+
+<div class="search-cointainer">
+    <h1>Enter Value</h1>
+    <input type="text" [(ngModel)]="chipText">
+    <button (click)="addChip()">Add Chip</button>
+
+
+</div>
+
+<div class="chip-container">
+    <div  class = "chip" *ngFor="let chip of chips; let i = index">
+        {{chip}}
+        <span (click)="removeChip(i)">X</span>
+    </div>
+</div>
+
+<app-password-checker></app-password-checker>
+
+<app-sortable-list></app-sortable-list>

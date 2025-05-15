@@ -1,0 +1,20 @@
+.main-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:1.5rem;
+}
+.sort-btn{
+    display: flex;
+    gap:1rem;
+}
+button{
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+}
+.item-list {
+    background-color: grey;
+    width: 100%;
+}

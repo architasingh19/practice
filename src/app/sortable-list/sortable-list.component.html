@@ -1,0 +1,15 @@
+<p>sortable-list works!</p>
+<div class ="main-container">
+    <h1>Sortable List....</h1>
+    <input type="text" [(ngModel)] = "newItem" placeholder="Add new item..">
+    <button (click) = "addItem()">Add Item</button>
+    <div class = "sort-btn">
+        <button (click) = "sortAscending()">Sort Ascending</button>
+        <button (click) = "sortDescending()">Sort Descending</button>
+    </div>
+    <div class = "item-list" >
+        <div *ngFor = "let listItem of items">
+        <li >{{listItem.value}}</li>
+    </div>
+    </div>
+</div>

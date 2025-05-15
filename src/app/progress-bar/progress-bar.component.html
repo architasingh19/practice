@@ -1,0 +1,14 @@
+<p>progress-bar works!</p>
+<div class="progress-container">
+    <p>Progress Bar..</p>
+    <div class="progress-bar">
+        <div class = "progress-fill" [ngStyle] = "{'width' : progress + '%' , 'background-color' : getProgressColor()}">
+            <span class="progress-text">{{progress}}%</span>
+        </div>
+    </div>
+
+    <div class = "progress-controls">
+        <button (click) = "decrement()">-10%</button>
+        <button (click) = "increment()">+10%</button>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.chip-container{
+    display: flex;
+    flex-direction :row;
+    gap:1.5rem;
+ 
+}
+
+.chip{
+
+    background-color:bisque ;
+    color:black;
+    border-radius :2rem;
+    display: flex;
+    flex-direction :row;
+    padding:0.5rem;
+    gap:5px;
+}

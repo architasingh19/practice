@@ -1,0 +1,24 @@
+<p>login works!</p>
+<div>
+    <h2>{{isLoginMode ? 'Login' : 'Register'}}</h2>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <input type="text" placeholder="Username" formControlName="username"><br><br>
+        <input type="password" placeholder="Password" formControlName = "password"><br><br>
+        <div *ngIf = "!isLoginMode">
+        <input type="email" placeholder="Email" formControlName = "email"><br><br>
+        <input type="number" placeholder="Age" formControlName = "age"><br><br>
+        <label for="gender">Gender : </label>
+        <label for="male"><input type="radio" formControlName = "gender" value = "Male">MALE</label>
+        <label for="female"><input type="radio" formControlName = "gender" value = "Female">Female</label><br><br>
+        <label for="status">Status : </label>
+        <label for="married"><input type="radio" formControlName = "status" value = "Married">Married</label>
+        <label for="unmarried"><input type="radio" formControlName = "status" value = "Unmarried" >Unmarried</label>
+        </div>
+        <button type="submit">{{isLoginMode ? 'Login' : 'Register'}}</button>
+        <button type="button" (click)="toggleMode()">
+            Switch to {{ isLoginMode ? 'Register' : 'Login' }}
+          </button>
+
+        
+    </form>
+</div>

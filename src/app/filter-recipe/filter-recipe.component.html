@@ -1,0 +1,34 @@
+<p>filter-recipe works!</p>
+
+<div>
+    <h1>Recipe Explorer....</h1>
+    <div class="container">
+        <div class = "text" >  
+            <label for="filter">Filter by Rating:</label>
+            <select [(ngModel)] = "selectedRating" (click) = "filterRecipes()" >
+                <option value="4.0">4.0+</option>
+                <option value="4.3">4.3+</option>
+                <option value="4.5">4.5+</option>
+                <option value="4.7">4.7+</option>
+                <option value="4.9">4.9+</option>
+            </select>
+        </div>
+        <div  class = "text">
+            Cart Item : {{cartCount}}
+        </div>
+    </div>
+    <div  class = "text ">
+        Average Rating : {{getAverageRating()}}
+    </div>
+   <div class = "recipe-container">
+    <div *ngFor = "let recipe  of filteredRecipes">
+        <div class = "card">
+            <h3>{{ recipe.name }}</h3>
+            <img [src]="recipe.image" alt="{{ recipe.name }}" width="200">
+            <p>{{ recipe.cuisine }}</p>
+            <p>Rating: {{ recipe.rating }}</p>
+            <button (click)="addToCart()">Add to Cart</button></div>
+
+    </div>
+   </div>
+</div>

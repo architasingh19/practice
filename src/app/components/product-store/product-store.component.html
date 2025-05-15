@@ -1,0 +1,16 @@
+<h2>Products List</h2>
+<div class="container">
+  <div *ngIf="products.length > 0; else noProducts">
+    <div *ngFor="let product of products" class="product-card">
+      <img [src]="product.thumbnail" alt="{{ product.title }}" class="product-image" />
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.description }}</p>
+      <button (click)="navigateToProduct(product.id)">View More</button>
+    </div>
+  </div>
+  <ng-template #noProducts>
+    <p>No products available.</p>
+  </ng-template>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
+<router-outlet></router-outlet>

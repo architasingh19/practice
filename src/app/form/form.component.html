@@ -1,0 +1,36 @@
+<div class="form-container" *ngIf="!formSubmitted"> 
+    <h2>Contact Details....</h2>
+    <form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name :</label><br>
+      <input type="text" formControlName="name">
+      <div *ngIf="contactForm.get('name')?.touched" class="error">
+        <div *ngIf="contactForm.get('name')?.errors?.['required']">Name is required.</div>
+        <div *ngIf="contactForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters..</div>
+      </div>
+      <br><br>
+  
+      <label for="email">Email :</label><br>
+      <input type="email" formControlName="email">
+      <div *ngIf="contactForm.get('email')?.touched" class="error">
+        <div *ngIf="contactForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="contactForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      </div>
+      <br><br>
+  
+      <label for="message">Message :</label><br>
+      <textarea formControlName="message"></textarea>
+      <div *ngIf="contactForm.get('message')?.touched" class="error">
+        <div *ngIf="contactForm.get('message')?.errors?.['required']">Message is required.</div>
+        <div *ngIf="contactForm.get('message')?.errors?.['minlength']">Message must be at least 10 characters..</div>
+      </div>
+      <br><br>
+  
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <!-- Success Message -->
+  <div *ngIf="formSubmitted" class="success-message">
+    <h3>You have successfully submitted the form!</h3>
+  </div>
+  
