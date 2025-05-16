@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductDetailsComponent } from './components/product-store/product-details/product-details.component';
 
 
 
@@ -14,9 +13,7 @@ import { ProductDetailsComponent } from './components/product-store/product-deta
 @NgModule({
   declarations: [
     AppComponent,
-   
- 
-   
+  
   ],
   imports: [
     BrowserModule,

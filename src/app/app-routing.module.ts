@@ -35,13 +35,21 @@ const routes: Routes = [
     path: 'product-store',
     loadComponent: () => import('./components/product-store/product-store.component').then(m => m.ProductStoreComponent),
     canActivate: [authGuard],
-    children: [
-      {
-        path: ':id',
-        loadComponent: () => import('./components/product-store/product-details/product-details.component').then(m => m.ProductDetailsComponent),
-        canActivate: [authGuard]
-      }
-    ]
+    
+  },
+  {
+    path: 'product-store/:id',
+    loadComponent: () => import('./components/product-store/product-details/product-details.component').then(m => m.ProductDetailsComponent),
+    canActivate: [authGuard]
+  },
+  {
+    path:'image-carousel',
+    loadComponent: () => import('./components/image-carousel/image-carousel.component').then(m => m.ImageCarouselComponent),
+    canActivate: [authGuard]
+  },
+  {
+    path : 'todo-list',
+    loadComponent: () => import('./components/todo-list/todo-list.component').then(m => m.TodoListComponent)
   },
 
    { path: '**', redirectTo: 'login' }

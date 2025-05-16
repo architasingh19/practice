@@ -1,0 +1,43 @@
+<!-- <div class="carousel" *ngIf="hasImages; else noImages">
+    <img [src]="images[currentIndex]?.src" [alt]="images[currentIndex]?.alt" class="carousel-image" />
+    
+    <button id="Previous" (click)="previous()">&#8592;</button>
+    <button id="Next" (click)="next()">&#8594;</button>
+  
+    <div class="page-buttons">
+      <button
+        *ngFor="let image of images; let i = index"
+        [ngClass]="{ 'active': i === currentIndex }"
+        [id]="'pageButton-' + (i + 1)"
+        (click)="goToImage(i)">
+        ●
+      </button>
+    </div>
+  </div>
+  
+  <ng-template #noImages>
+    <p>No images available.</p>
+  </ng-template>
+   -->
+
+    <div class="main-container">
+        <h1>Image Carousel....</h1>
+        <div class = "carousel" *ngIf="hasImage; else noImages">
+            <img  class = "carousel-image" [src]="images[currentIndex]?.src" alt="images[currentIndex]?.alt">
+            <button class="prevbtn" (click) = "previous()">--</button>
+            <button class="nextbtn" (click) = "next()">--</button>
+        </div>
+        <div class="page-buttons">
+            <button
+              *ngFor="let image of images; let i = index"
+              [ngClass]="{ 'active': i === currentIndex }"
+              [id]="'pageButton-' + (i + 1)"
+              (click)="goToImage(i)">
+              ●
+            </button>
+          </div>
+    </div>
+ 
+   <ng-template #noImages>
+    <p>no images available</p>
+   </ng-template>

@@ -1,0 +1,16 @@
+<div class="todo-container">
+    <h2>Todo List</h2>
+    <div class="input-section">
+      <input type="text" [(ngModel)]="newTodoText" placeholder="Enter todo" />
+      <button (click)="addTodo()">Add</button>
+    </div>
+  
+    <ul>
+      <li *ngFor="let todo of todos">
+        <input type="checkbox" [(ngModel)]="todo.completed"  />
+        <span [ngClass]="{ 'completed': todo.completed }">{{ todo.text }}</span>
+        <button (click)="deleteTodo(todo.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  

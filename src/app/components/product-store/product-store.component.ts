@@ -1,21 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @Component({
   selector: 'app-product-store',
   templateUrl: './product-store.component.html',
   styleUrls: ['./product-store.component.scss'],
   standalone : true,
-  imports:[CommonModule,RouterModule]
+  imports:[CommonModule,RouterModule,ProductDetailsComponent]
 })
 export class ProductStoreComponent {
 
   products : any[] = []
   errorMessage: string = '';
 
-  constructor(private productService : CommonService, private router :Router){
+  constructor(private productService : CommonService, private router :Router,  private route: ActivatedRoute  ){
 
   }
 
@@ -30,7 +31,9 @@ export class ProductStoreComponent {
     });
   }
 
-  navigateToProduct(productId: number): void {
-    this.router.navigate(['/product-store', productId]);
-  }
+// product-store.component.ts
+navigateToProduct(productId: number): void {
+  this.router.navigate([productId], { relativeTo: this.route });
+}
+
 }
